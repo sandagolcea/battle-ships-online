@@ -7,3 +7,8 @@ Feature: Starting the game
     Given I am on the homepage
     When I follow "New Game"
     Then I should see "What's your name?"
+
+  Scenario: Register your name
+  	Given I am on newgame
+  	When I submit my name as "Johnny"
+  	Then I should see "Welcome Johnny, good hunting"
