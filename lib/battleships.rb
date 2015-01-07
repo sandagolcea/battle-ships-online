@@ -22,14 +22,17 @@ set :views, Proc.new { File.join(root, "..", "views") }
   post '/newgame' do
     @first_name = params[:first] unless params[:first] == ""
     @second_name = params[:second]  unless params[:second] == ""
+   
+    @player1 = Player.new
+    @player2 = Player.new
+    session[:player] = @player1.object_id
+    session[:player2] = @player2.object_id
+    @player1.name = params[:first]
+    @player2.name = params[:second]
+    GAME.add_player(@player1)
+    GAME.add_player(@player2)
+    puts GAME.inspect
     
-    session[:first] = params[:first]
-    # @player = Player.new
-    # session[:me] = @player.object_id
-    # player.name = params[:first]
-    # GAME.add_player(player)
-    # puts GAME.inspect
-    # redirect '/battle'
     erb :newgame
   end
 
