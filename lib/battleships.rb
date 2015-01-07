@@ -25,6 +25,7 @@ set :views, Proc.new { File.join(root, "..", "views") }
    
     @player1 = Player.new
     @player2 = Player.new
+
     session[:player] = @player1.object_id
     session[:player2] = @player2.object_id
     @player1.name = params[:first]
@@ -39,8 +40,14 @@ set :views, Proc.new { File.join(root, "..", "views") }
   get '/battle' do
     @first_name = session[:first]
     # puts "====" * 20
-    puts @first_name
+		@current_player = GAME.turn.name
     erb :battle
+  end
+
+  post '/battle' do
+  	GAME.shoots(params[:coord])
+  	@current_player = GAME.turn.name
+		erb :battle
   end
 
   # start the server if ruby file executed directly

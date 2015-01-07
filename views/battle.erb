@@ -5,6 +5,10 @@
   <title>Fight!</title>
 </head>
 <body>
-  <%=@first_name%>
+  <%=@current_player%>
+  <form action="/battle" method="post">
+		<input type="text" name="coord">
+    <input type="submit" value="fire">
+  </form>
 </body>
 </html>

@@ -6,6 +6,7 @@ class Player
 	end
 
 	def receive_shot(coordinate)
-		board.shoot_at(coordinate)
+		# board.shoot_at(coordinate)
+		
 	end
 end

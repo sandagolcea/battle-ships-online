@@ -21,7 +21,7 @@ class Game
 	end
 
 	def winner
-		current_player unless opponent.board.floating_ships?
+		# current_player unless opponent.board.floating_ships?
 	end
 
 	def ready?
