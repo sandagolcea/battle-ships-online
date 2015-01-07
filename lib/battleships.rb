@@ -9,8 +9,9 @@ set :views, Proc.new { File.join(root, "..", "views") }
   end
 
   get '/newgame' do
-    @first_name = params[:first]
-    @second_name = params[:second]
+  	puts params.inspect
+    @first_name = params[:first] unless params[:first] == ""
+    @second_name = params[:second]  unless params[:second] == ""
     erb :newgame
   end
 

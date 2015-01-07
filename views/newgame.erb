@@ -9,19 +9,21 @@
 
 
   <p>What's your name?</p>
+	<%if !@second_name || !@first_name %>
 
-  <form action='/newgame'>
-    
-    <input type="text" name="first"><br>
-    <input type="text" name="second"><br>
-    <input type="submit" value="GO!">
+  	<form action='/newgame'>  
+    	<input type="text" name="first"><br>
+    	<input type="text" name="second"><br>
+    	<input type="submit" value="GO!">
+		</form>	
 
-  </form>
-  <%if @first_name && !@first_name.empty?%>
+	<%end%>
+	 
+  <%if @first_name %>
     <p>Welcome <%=@first_name%>, good hunting</p>
   <%end%>
 
-  <%if @second_name && !@second_name.empty?%>
+  <%if @second_name %>
     <p>Welcome <%=@second_name%>, good hunting</p>
   <%end%>
   
