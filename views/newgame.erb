@@ -6,12 +6,11 @@
 </head>
 <body>
 
-
-
   <p>What's your name?</p>
+  
 	<%if !@second_name || !@first_name %>
 
-  	<form action='/newgame'>  
+  	<form action="/newgame" method="post">  
     	<input type="text" name="first"><br>
     	<input type="text" name="second"><br>
     	<input type="submit" value="GO!">
@@ -28,7 +27,12 @@
   <%end%>
   
   <%if @first_name && @second_name && !@first_name.empty? && !@second_name.empty? %>
-    Fight!
+    <p>Ready to Battle?</p>
+    <!-- <a href="/battle"><button type="button" name="Fight!">Fight!</button></a> -->
+    <form action="/battle">
+      <input type="submit" value="Fight!">
+    </form>
+
   <%end%>
 
   

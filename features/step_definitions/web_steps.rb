@@ -20,6 +20,14 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+
+Given /^(?:|I )have "([^\"]*)" with "([^\"]*)"(?: within "([^\"]*)")?$/ do |field, value, selector|
+  with_scope(selector) do
+    fill_in(field, :with => value)
+  end
+end
+
+# Given I am on page with parameters1 with value and parameter2 with value
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -29,6 +37,10 @@ When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
     click_button(button)
   end
 end
+
+# When(/^I press "(.*?)"$/) do |button|
+#   click_button button
+# end
 
 When /^(?:|I )follow "([^\"]*)"(?: within "([^\"]*)")?$/ do |link, selector|
   with_scope(selector) do

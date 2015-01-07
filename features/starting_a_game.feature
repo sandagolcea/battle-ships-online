@@ -21,3 +21,10 @@ Feature: Starting the game
   	And I press "GO!"
   	Then I should see "Welcome Sanda, good hunting"
   	
+  Scenario: Ready to start game
+    Given I am on the newgame page
+    When I fill in "second" with "Sanda"
+    And I fill in "first" with "Johnny"
+    And I press "GO!"
+    And I press "Fight!"
+    Then I should be on the battle page
