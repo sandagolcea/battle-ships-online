@@ -10,5 +10,16 @@
 		<input type="text" name="coord">
     <input type="submit" value="fire">
   </form>
+  
+  <%last_coord = :A1%>
+  <br>
+   <% @current_player_object.board.grid.each do |coord,value| %>
+      <%if last_coord.to_s.ord != coord.to_s.ord%>
+        <%last_coord=coord%>
+        <br>
+      <%end%>
+      <%=" #{value.hit?} " %>
+   <%end%>
+  
 </body>
 </html>
