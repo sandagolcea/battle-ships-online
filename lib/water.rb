@@ -1,4 +1,5 @@
 class Water
+  
 	def hit!
 		@hit = true
 	end
