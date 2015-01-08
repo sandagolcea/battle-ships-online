@@ -76,7 +76,7 @@ set :public_folder, 'public'
   	ship = player1_fleet.shift
   	ship_coord = params[:ship_coord]
 		GAME.current_player.board.place(ship, ship_coord.to_sym)
-		@placed = "placed"
+		@placed = player1_fleet == []
 		erb :place_ships
   end
 
