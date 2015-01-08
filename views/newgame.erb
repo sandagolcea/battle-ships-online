@@ -5,11 +5,10 @@
   <title>BattleShips</title>
 </head>
 <body>
-
-  <p>What's your name?</p>
   
 	<%if !@second_name || !@first_name %>
-
+    <p>What's your name?</p>
+    
   	<form action="/newgame" method="post">  
     	<input type="text" name="first"><br>
     	<input type="text" name="second"><br>
