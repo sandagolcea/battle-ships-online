@@ -45,7 +45,7 @@ set :views, Proc.new { File.join(root, "..", "views") }
     @player1.board = @board_player1
     @player2.board = @board_player2
 
-    session[:player] = @player1.object_id
+    session[:player1] = @player1.object_id
     session[:player2] = @player2.object_id
     
     @player1.name = params[:first]
@@ -81,15 +81,18 @@ set :views, Proc.new { File.join(root, "..", "views") }
   	puts GAME.inspect
     @first_name = session[:first]
     # puts "====" * 20
-		@current_player = GAME.turn.name
+		@current_player = GAME.current_player.name
+    @current_player_object = GAME.current_player
+    
+    puts @current_player_object.board.inspect
+
     erb :battle
   end
 
   post '/battle' do
-    GAME.shoots(params[:coord].to_sym) 
-
-  	@current_player = GAME.turn.name
-    # puts GAME.opponent.board.inspect
+    GAME.shoots(params[:coord].to_sym)     
+  	@current_player = GAME.current_player.name
+    @current_player_object = GAME.current_player
 
 		erb :battle
   end
