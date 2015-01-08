@@ -1,10 +1,10 @@
 require 'sinatra/base'
-require './lib/game'
-require './lib/player'
-require './lib/cell'
-require './lib/water'
-require './lib/board'
-require './lib/ship'
+require_relative 'game'
+require_relative 'player'
+require_relative 'cell'
+require_relative 'water'
+require_relative 'board'
+require_relative 'ship'
 
 class BattleShips < Sinatra::Base
 
@@ -13,8 +13,7 @@ player1_fleet = [Ship.submarine, Ship.patrol_boat]
 
 
 set :views, Proc.new { File.join(root, "..", "views") }
-set :public_folder, 'public'
-# Proc.new { File.join(root, "public") }
+set :public_folder, Proc.new { File.join(root, "public") }
 # set :public_folder, File.dirname(__FILE__) + '/stylesheets'
   
   enable :sessions
