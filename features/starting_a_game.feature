@@ -23,8 +23,21 @@ Feature: Starting the game
   	
   Scenario: Ready to start game
     Given I am on the newgame page
-    When I fill in "second" with "Sanda"
-    And I fill in "first" with "Johnny"
+    When I fill in "first" with "Johnny"
+    And I fill in "second" with "Sanda"
     And I press "GO!"
     And I press "Fight!"
     Then I should be on the battle page
+
+  Scenario: Ready for player turn
+   Given I am on the newgame page
+    When I fill in "first" with "Johnny"
+    And I fill in "second" with "Sanda"
+    And I press "GO!"
+    And I press "Fight!"
+    Then I should see "Johnny"
+
+  Scenario: When you click fight, we switch players
+    Given I am on the battle page
+    # And I have "Johnny" with
+    # When I

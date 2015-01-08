@@ -13,7 +13,13 @@ module WithinHelpers
   def with_scope(locator)
     locator ? within(locator) { yield } : yield
   end
+
+  def game_init
+    
+  end
 end
+
+
 World(WithinHelpers)
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
