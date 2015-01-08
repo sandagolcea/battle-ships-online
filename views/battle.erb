@@ -11,15 +11,31 @@
     <input type="submit" value="fire">
   </form>
   
-  <%last_coord = :A1%>
+  <%current_row_coord = :A1%>
   <br>
-   <% @current_player_object.board.grid.each do |coord,value| %>
-      <%if last_coord.to_s.ord != coord.to_s.ord%>
-        <%last_coord=coord%>
-        <br>
-      <%end%>
-      <%=" #{value.hit?} " %>
-   <%end%>
   
+  <table id="matrix">
+   
+    <tr>
+   <% @current_player_object.board.grid.each do |coord,value| %>
+      
+      <%if current_row_coord.to_s.ord != coord.to_s.ord%>
+        <%current_row_coord=coord%>
+
+        <!-- row transition-->
+        </tr><tr>
+      <%end%>
+
+      <!-- matrix cells -->
+      <td>
+      <%=" #{coord} " %>
+      <%=" #{value.content.class} " %>
+      <%=" #{value.hit?} " %>
+      </td>  
+   <%end%>
+   
+   </tr>
+  </table>
+
 </body>
 </html>
