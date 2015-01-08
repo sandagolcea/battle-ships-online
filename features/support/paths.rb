@@ -16,6 +16,9 @@ module NavigationHelpers
 		when /the newgame\s?page/
 			'/newgame'
 
+		when /the set up ships page/
+			'/place_ships'
+
     when /the battle\s?page/
       '/battle'
     # Add more mappings here.

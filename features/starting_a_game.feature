@@ -26,8 +26,8 @@ Feature: Starting the game
     When I fill in "first" with "Johnny"
     And I fill in "second" with "Sanda"
     And I press "GO!"
-    And I press "Fight!"
-    Then I should be on the battle page
+    And I press "Set up ships!"
+    Then I should be on the set up ships page
 
 
   Scenario: Ready for player turn
@@ -35,9 +35,11 @@ Feature: Starting the game
     When I fill in "first" with "Johnny"
     And I fill in "second" with "Sanda"
     And I press "GO!"
-    And I press "Fight!"
-    Then I should see "Johnny"
+    And I press "Set up ships!"
+    Then I should see "place ships"
 
   Scenario: When you click fight, we switch players
     Given I am on the battle page
+
+
   

@@ -4,10 +4,13 @@ require_relative 'player'
 require_relative 'cell'
 require_relative 'water'
 require_relative 'board'
+require_relative 'ship'
 
 class BattleShips < Sinatra::Base
 
 GAME = Game.new
+player1_fleet = [Ship.submarine, Ship.patrol_boat]
+
 
 set :views, Proc.new { File.join(root, "..", "views") }
   
@@ -56,7 +59,26 @@ set :views, Proc.new { File.join(root, "..", "views") }
     erb :newgame
   end
 
+  get '/place_ships' do
+  	
+  	puts player1_fleet.inspect
+    @first_name = session[:first]
+    # puts "====" * 20
+		@current_player = GAME.turn.name
+    erb :place_ships
+  end
+
+  post '/place_ships' do
+  	puts player1_fleet.inspect
+  	ship = player1_fleet.shift
+  	ship_coord = params[:ship_coord]
+		GAME.current_player.board.place(ship, ship_coord.to_sym)
+		@placed = "placed"
+		erb :place_ships
+  end
+
   get '/battle' do
+  	puts GAME.inspect
     @first_name = session[:first]
     # puts "====" * 20
 		@current_player = GAME.turn.name

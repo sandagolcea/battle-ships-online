@@ -29,8 +29,8 @@
   <%if @first_name && @second_name && !@first_name.empty? && !@second_name.empty? %>
     <p>Ready to Battle?</p>
     <!-- <a href="/battle"><button type="button" name="Fight!">Fight!</button></a> -->
-    <form action="/battle">
-      <input type="submit" value="Fight!">
+    <form action="/place_ships">
+      <input type="submit" value="Set up ships!">
     </form>
 
   <%end%>
