@@ -29,6 +29,7 @@ Feature: Starting the game
     And I press "Fight!"
     Then I should be on the battle page
 
+
   Scenario: Ready for player turn
    Given I am on the newgame page
     When I fill in "first" with "Johnny"
@@ -39,5 +40,4 @@ Feature: Starting the game
 
   Scenario: When you click fight, we switch players
     Given I am on the battle page
-    # And I have "Johnny" with
-    # When I
+  
