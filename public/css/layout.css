@@ -12,3 +12,14 @@ h1 {
 nav.header {
 	background-color:#000
 }
+
+.miss {
+	background-color: blue;
+	color: red;
+	padding:5px;
+	margin:5px
+} 
+
+.hit {
+	background-color:red;
+} 

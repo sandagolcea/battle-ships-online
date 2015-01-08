@@ -1,13 +1,13 @@
 
 <% if @placed %>
-<%= @placed %>
-<form action="/battle">
-  <input type="submit" value="New Game">
-</form>
+	<%= @placed %>
+	<form action="/battle">
+	  <input type="submit" value="New Game">
+	</form>
 <% else %>
-<p>place ships</p>
-<form action="/place_ships" method="post">
-	<input type="text" name="ship_coord">
-  <input type="submit" value="place ship">
-</form>
+	<p>place ships</p>
+	<form action="/place_ships" method="post">
+		<input type="text" name="ship_coord">
+	  <input type="submit" value="place ship">
+	</form>
 <% end %>

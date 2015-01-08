@@ -27,7 +27,8 @@
       <%end%>
 
       <!-- matrix cells -->
-      <td>
+      <td class=<%= value.hit? ? 'hit' : 'miss' %> >
+      	
       <%=" #{coord} " %>
       <%=" #{value.content.class} " %>
       <%=" #{value.hit?} " %>
