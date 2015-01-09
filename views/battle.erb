@@ -11,32 +11,7 @@
     <input type="submit" value="fire">
   </form>
   
-  <%current_row_coord = :A1%>
-  <br>
-  
-  <table id="matrix">
-   
-    <tr>
-   <% @current_player_object.board.grid.each do |coord,value| %>
-      
-      <%if current_row_coord.to_s.ord != coord.to_s.ord%>
-        <%current_row_coord=coord%>
-
-        <!-- row transition-->
-        </tr><tr>
-      <%end%>
-
-      <!-- matrix cells -->
-      <td class=<%= value.hit? ? 'hit' : 'miss' %> >
-      	
-      <%=" #{coord} " %>
-      <%=" #{value.content.class} " %>
-      <%=" #{value.hit?} " %>
-      </td>  
-   <%end%>
-   
-   </tr>
-  </table>
+  <%= erb :board %>
 
 </body>
 </html>
